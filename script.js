@@ -11,7 +11,7 @@ function readyNow() {
 function addClickHandlers() {
     //on click of button, submit new employee
     $('#submit').on('click', handleSubmit);
-
+    $('#employeeChart').on('click', '.deleteBtn', handleDelete);
 }
 
 function handleSubmit() {
@@ -23,7 +23,7 @@ function handleSubmit() {
     let annualSalary = $('#annualSalary').val();
 
     addEmployee(firstName, lastName, numberID, jobTitle, annualSalary);
-    
+
     //clear input values
     $('#firstName').val('');
     $('#lastName').val('');
@@ -32,6 +32,10 @@ function handleSubmit() {
     $('#annualSalary').val('');
 
 
+}
+
+function handleDelete() {
+    $(this).closest('tr').remove();
 }
 
 function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {

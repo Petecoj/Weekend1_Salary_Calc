@@ -36,9 +36,12 @@ function handleSubmit() {
 
 function handleDelete() {
     $(this).closest('tr').remove();
+    
 }
-
+let monthlyCost = 0
 function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {
+     
+
     let $row = $('<tr></tr>') // creating a new row not yet on the DOM
     //appending the data from the inputs into the row, also not yet on the DOM
     $row.append(`<td>${firstName}</td>`);
@@ -50,5 +53,13 @@ function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {
 
     // append the data to the actual DOM
     $('#employeeChart').append($row);
+    updateMonthlyCost();
 
+function updateMonthlyCost(){
+    monthlyCost = annualSalary/12 + monthlyCost;
+    $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
+    if (monthlyCost > 20000) {
+        $('.monthlyCost').css('background-color', 'red');
+    }
+}
 }

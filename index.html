@@ -4,20 +4,24 @@
 <head>
 
     <title>Weekend Challenge!</title>
+    <link rel = "stylesheet" href = "bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="jquery-3.3.1.min copy.js"></script>
     <script src="script.js"></script>
 </head>
 <main>
-    <div>
-        <input id="firstName" type="text" placeholder="First Name">
-        <input id="lastName" type="text" placeholder="Last Name">
-        <input id="numberID" type="text" placeholder="ID Number">
-        <input id="jobTitle" type="text" placeholder="Job Title">
-        <input id="annualSalary" type="text" placeholder="Annual Salary">
-        <button id="submit">SUBMIT</button>
+    <header>
+        <h1><span class="badge badge-primary">New</span> Employee Salary Manager</h1>
+    </header>
+    <div class = "form-group-row">
+        <input  id="firstName" type="text" placeholder="First Name">
+        <input  id="lastName" type="text" placeholder="Last Name">
+        <input  id="numberID" type="text" placeholder="ID Number">
+        <input  id="jobTitle" type="text" placeholder="Job Title">
+        <input  id="annualSalary" type="text" placeholder="Annual Salary">
+        <button class = "btn btn-secondary" id="submit">SUBMIT</button>
     </div>
-    <table>
+    <table class= "table table-striped">
         <thead>
             <tr>
             <th>First Name</th>
@@ -31,8 +35,8 @@
         <tbody id="employeeChart">
         </tbody>
     </table>
-    <div>
-<h3 class = "monthlyCost">Monthly Cost:</h3>
+    <div class = "cost">
+<h3 class = "monthlyCost">Monthly Cost:   0</h3>
     </div>
 </main>
 

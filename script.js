@@ -23,7 +23,7 @@ function handleSubmit() {
     let annualSalary = $('#annualSalary').val();
 
     addEmployee(firstName, lastName, numberID, jobTitle, annualSalary);
-
+    addWorker()
     //clear input values
     $('#firstName').val('');
     $('#lastName').val('');
@@ -36,11 +36,14 @@ function handleSubmit() {
 
 function handleDelete() {
     $(this).closest('tr').remove();
-    
+    // $('table').data('annualSalary',{})
+     monthlyCost = monthlyCost // - $(this).data()??????
+    $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
 }
 let monthlyCost = 0
+
 function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {
-     
+
 
     let $row = $('<tr></tr>') // creating a new row not yet on the DOM
     //appending the data from the inputs into the row, also not yet on the DOM
@@ -55,11 +58,27 @@ function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {
     $('#employeeChart').append($row);
     updateMonthlyCost();
 
-function updateMonthlyCost(){
-    monthlyCost = annualSalary/12 + monthlyCost;
-    $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
-    if (monthlyCost > 20000) {
-        $('.monthlyCost').css('background-color', 'red');
+    function updateMonthlyCost() {
+        monthlyCost = Math.floor(annualSalary / 12 + monthlyCost);
+        $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
+        if (monthlyCost > 20000) {
+            $('.monthlyCost').css('background-color', 'red');
+        }
     }
 }
+class Employee {
+    constructor(firstName, lastName, numberID, jobTitle, annualSalary) {
+        this.firstname = firstName;
+        this.lastName = lastName;
+        this.numberID = numberID;
+        this.jobTitle = jobTitle;
+        this.annualSalary = annualSalary;
+
+    }
+
+}
+let employees = []
+function addWorker(){
+    new Employee($('#firstName').val(), $('#lastName').val(), $('#numberID').val(), $('#jobTitle').val(), $('#annualSalary').val());
+    employees.push( new Employee($('#firstName').val(), $('#lastName').val(), $('#numberID').val(), $('#jobTitle').val(), $('#annualSalary').val()));
 }

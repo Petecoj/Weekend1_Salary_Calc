@@ -36,6 +36,7 @@ function handleSubmit() {
 
 function handleDelete() {
     $(this).closest('tr').remove();
+    //this is where i was trying to figure the adjustment with the delete but failed :(
     // $('table').data('annualSalary',{})
      monthlyCost = monthlyCost // - $(this).data()??????
     $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
@@ -66,6 +67,7 @@ function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {
         }
     }
 }
+//this is creating a class to be able to push employees into an array
 class Employee {
     constructor(firstName, lastName, numberID, jobTitle, annualSalary) {
         this.firstname = firstName;
@@ -77,6 +79,7 @@ class Employee {
     }
 
 }
+//adding new employees into the array
 let employees = []
 function addWorker(){
     new Employee($('#firstName').val(), $('#lastName').val(), $('#numberID').val(), $('#jobTitle').val(), $('#annualSalary').val());

@@ -38,7 +38,7 @@ function handleDelete() {
     $(this).closest('tr').remove();
     //this is where i was trying to figure the adjustment with the delete but failed :(
     // $('table').data('annualSalary',{})
-     monthlyCost = monthlyCost // - $(this).data()??????
+    monthlyCost = monthlyCost // - $(this).data()??????
     $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
 }
 let monthlyCost = 0
@@ -64,7 +64,7 @@ function addEmployee(firstName, lastName, numberID, jobTitle, annualSalary) {
         $('.monthlyCost').text('Monthly Cost:' + monthlyCost)
         if (monthlyCost > 20000) {
             $('.monthlyCost').css('background-color', 'red');
-        }
+        } // you could also use .addclass and .removeclass
     }
 }
 //this is creating a class to be able to push employees into an array
@@ -81,7 +81,8 @@ class Employee {
 }
 //adding new employees into the array
 let employees = []
-function addWorker(){
+
+function addWorker() {
     new Employee($('#firstName').val(), $('#lastName').val(), $('#numberID').val(), $('#jobTitle').val(), $('#annualSalary').val());
-    employees.push( new Employee($('#firstName').val(), $('#lastName').val(), $('#numberID').val(), $('#jobTitle').val(), $('#annualSalary').val()));
+    employees.push(new Employee($('#firstName').val(), $('#lastName').val(), $('#numberID').val(), $('#jobTitle').val(), $('#annualSalary').val()));
 }
